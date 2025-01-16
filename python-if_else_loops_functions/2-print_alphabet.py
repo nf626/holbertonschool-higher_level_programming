@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 
-for 
+for x in range()
