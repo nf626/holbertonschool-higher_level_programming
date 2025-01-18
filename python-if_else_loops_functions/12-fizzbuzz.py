@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-"""prints the numbers from 1 to 100"""
 def fizzbuzz():
     '''fizz, buzz, fizzbuzz'''
     for i in range(1, 101):
