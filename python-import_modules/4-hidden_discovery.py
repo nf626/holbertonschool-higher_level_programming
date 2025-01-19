@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 if __name__ == '__main__':
+    """prints all the names defined in hidden_4"""
     import hidden_4
 
     hidden_name = dir(hidden_4)
