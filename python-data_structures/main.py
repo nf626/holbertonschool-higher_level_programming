@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-multiple_returns = __import__('8-multiple_returns').multiple_returns
+print_list_integer = __import__('0-print_list_integer').print_list_integer
 
-sentence = ""
-length, first = multiple_returns(sentence)
-print("Length: {:d} - First character: {}".format(length, first))
+my_list = [1, 2, 3, 4, 5]
+print_list_integer(my_list)
