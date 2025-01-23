@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 def safe_print_division(a, b):
-    #zeroDivisionError, typeerror
+#
+# zero division and type
     divide = 0
     try:
         divide = a / b
