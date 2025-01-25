@@ -52,3 +52,8 @@ Tests:
     >>> add (float('inf'), 0)
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
+
+    float NaN
+    >>> add (float('NaN'), 0)
+    Traceback (most recent call last):
+    ValueError: 
