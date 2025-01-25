@@ -18,10 +18,7 @@ Tests:
     >>> add(3.4, 1.2)
     4
 
-    add one float and one integer
-    >>> add(1.5, 4)
-    5
-
+    add integer and float
     >>> add (2, 5.2)
     7
     
@@ -53,8 +50,8 @@ Tests:
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
-    Overflow two arguments with float infinity
-    >>> add (float('inf'), float('inf'))
+    Overflow arg 1 float infinity and arg 2 float -infinity
+    >>> add (float('inf'), float('-inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
