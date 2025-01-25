@@ -51,4 +51,4 @@ Tests:
     integer or float is too big
     >>> add (float('inf'), 1)
     Traceback (most recent call last)
-    OverflowError: floating infinity too large
+    OverflowError: cannot convert float infinity to integer
