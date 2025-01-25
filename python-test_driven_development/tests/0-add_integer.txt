@@ -53,7 +53,12 @@ Tests:
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
-    float NaN
-    >>> add (float('NaN'), 0)
+    float NaN argument 1
+    >>> add (float('NaN'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+    float NaN argumen 2
+    >>> add (float(0, 'NaN'))
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
