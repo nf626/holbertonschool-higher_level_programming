@@ -49,6 +49,6 @@ Tests:
     TypeError: a must be an integer
 
     integer or float is too big
-    >>> add (float('inf'), 1)
+    >>> add (float('inf'), 0)
     Traceback (most recent call last)
     OverflowError: cannot convert float infinity to integer
