@@ -23,7 +23,7 @@ Tests:
     -14
 
     Adding two integers with the second being the same as the default value of b
-    >>> add_integer(2)
+    >>> add (2)
     100
 
     Adding a positive float and a positive integer
@@ -35,12 +35,12 @@ Tests:
     100
 
     Adding a positive float and a negative integer
-	    >>> add_integer(10.5, -2)
-	    8
+	>>> add (10.5, -2)
+	8
 
     Adding two negative floats
-	    >>> add (-10.5, -2)
-	    -12
+    >>> add (-10.5, -2)
+    -12
 
     Adding an integer number and a string
     >>> add (4, "School")
