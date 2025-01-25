@@ -47,3 +47,8 @@ Tests:
     >>> add ("hello")
     Traceback (most recent call last):
     TypeError: a must be an integer
+
+    integer or float is too big
+    >>> add (float('inf'), 1)
+    Traceback (most recent call last)
+    OverflowError: floating infinity too large
