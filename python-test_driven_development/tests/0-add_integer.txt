@@ -59,6 +59,6 @@ Tests:
     ValueError: cannot convert float NaN to integer
 
     float NaN argument 1
-    >>> add (float('NaN'), 0)
+    >>> add (float('NaN'))
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
