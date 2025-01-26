@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module: Text indentation"""
 
+
 def text_indentation(text):
     """
 
