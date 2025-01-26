@@ -1,16 +1,4 @@
 #!/usr/bin/python3
-print_square = __import__('4-print_square').print_square
+text_indentation = __import__('5-text_indentation').text_indentation
 
-print_square()
-print("")
-print_square(10)
-print("")
-print_square(0)
-print("")
-print_square(1)
-print("")
-try:
-    print_square(-1)
-except Exception as e:
-    print(e)
-print("")
+text_indentation("Hello: welcome to python. what questions do you have?")

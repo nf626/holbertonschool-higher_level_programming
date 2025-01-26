@@ -1,12 +1,26 @@
-The ``add_integer`` module
+The ``text_indentation`` module
 ======================
 
-Using ``add_integer``
+Using ``text_indentation``
 -------------------
 
 
-First import ``add_integer`` from the ``0-add_integer`` file:
+First import ``text_indentation`` from the ``5-text_indentation`` file:
 
-    >>> add = __import__('0-add_integer').add_integer
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
 
 Tests:
+    Print text:
+    >>> text_indentation("Hello: welcome to python. what questions do you have?")
+    Hello:
+    <BLANKLINE>
+    welcome to python.
+    <BLANKLINE>
+    what questions do you have?
+    <BLANKLINE>
+
+    Text no a string:
+    >>> text_indentation(1)
+    Traceback (most recent call last):
+            ...
+    TypeError: text must be a string
