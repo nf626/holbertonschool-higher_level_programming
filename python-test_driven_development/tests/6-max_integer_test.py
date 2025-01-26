@@ -30,5 +30,10 @@ class TestMaxInteger(unittest.TestCase):
         """one element"""
         self.assertEqual(max_integer([3]), 3)
 
+
+    def test_empty(self):
+        """empty"""
+        self.assertEqual(max_integer([]), None)
+
     if __name__ == '__main__':
         unittest.main()
