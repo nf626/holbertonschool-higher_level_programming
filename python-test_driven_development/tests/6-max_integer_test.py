@@ -25,3 +25,10 @@ class TestMaxInteger(unittest.TestCase):
     def test_max_int_one_negative(self):
         """max int found in middle"""
         self.assertEqual(max_integer([1, 2, 3, -4]), 3)
+
+    def test_max_int_one_element(self):
+        """one element"""
+        self.assertEqual(max_integer([3]), 3)
+
+    if __name__ == '__main__':
+        unittest.main()
