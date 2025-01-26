@@ -1,17 +1,40 @@
-The ''matrix_divided'' module
+The ``matrix_divided`` module
 ======================
 
 Using ``matrix_divided``
-----------------------
+-------------------
 
-First import ''matrix_divided'' from the ''2-matrix_divided'' file:
 
-    >>> matrix = __import__('2-matrix_divided').matrix_divided
+First import ``matrix_divided`` from the ``2-matrix_divided`` file:
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 Tests:
-    >>> matrix = [
-    ...       [1, 2, 3],
-    ...       [4, 5, 6]
-    ... ]
+    Print integer matrix:
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
     >>> print(matrix_divided(matrix, 3))
-    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    Print floating integer matrix:
+    >>> matrix = [[1.2, 2.6, 3.4], [4.7, 5.1, 6.3]]
+    >>> print(matrix_divided(matrix, 3))
+    [[0.4, 0.87, 1.13], [1.57, 1.7, 2.1]]
+
+    Print integer and float matrix:
+    >>> matrix = [[1.2, 2.6, 3], [4.7, 5, 6]]
+    >>> print(matrix_divided(matrix, 3))
+    [[0.4, 0.87, 1.0], [1.57, 1.67, 2.0]]
+
+    Div is zero
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+            ...
+    ZeroDivisionError: division by zero
+
+    Matrix list of list is not int or float:
+    >>> matrix = "not a list"
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+            ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
