@@ -6,3 +6,4 @@ class Square:
     """Class to create square"""
     def __init__(self):
         print("", end="")
+    # can you pass
