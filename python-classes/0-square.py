@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""M"""
+"""My first square"""
 
 
 class Square:
-    """C"""
+    """Class to create square"""
     def __init__(self):
         print("", end="")
