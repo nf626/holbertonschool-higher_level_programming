@@ -14,7 +14,13 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
 
-        self.__size = size
+    def size(self):
+        """getter method"""
+        return (self)
+
+    def size(self, value):
+        """setter method"""
+        self.__size = value
 
     def area(self):
         """Calculate area"""
