@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 Square = __import__('6-square').Square
 
-my_square_1 = Square(3, "Position")
+my_square_1 = Square(3, "hi")
 my_square_1.my_print()
 
 print("--")
