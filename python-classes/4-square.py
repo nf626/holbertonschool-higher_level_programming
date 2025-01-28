@@ -19,6 +19,7 @@ class Square:
         """getter method"""
         return (self.__size)
 
+    @size.setter
     def size(self, value):
         """setter method"""
         if not isinstance(value, int):
