@@ -6,8 +6,9 @@ class Square:
     """Class to create square"""
     __size = None
 
-    def __init__(self, size=0):
+    def __init__(self, size=0,position=(0,0)):
         self.__size = size
+        self.position = position
 
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
@@ -16,12 +17,12 @@ class Square:
 
     @property
     def size(self):
-        """getter method"""
+        """size getter method"""
         return (self.__size)
 
     @size.setter
     def size(self, value):
-        """setter method"""
+        """size setter method"""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -30,9 +31,13 @@ class Square:
 
     @property
     def position(self):
-        return ()
+        """position getter method"""
+        return (self.__position)
     @position.setter
     def position(self, value):
+        """position setter method"""
+        if value:
+            raise TypeError("position must be a tuple of 2 positive integers")
 
     def area(self):
         """Calculate area"""
