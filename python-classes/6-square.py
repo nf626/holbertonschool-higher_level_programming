@@ -40,28 +40,36 @@ class Square:
 
     @position.setter
     def position(self, value):
-        """position setter method"""
-        if (type(value) != tuple or len(value) != 2):
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-        for items in value:
-            if not isinstance(items, int) or items < 0:
-                raise TypeError("position must be a tuple of 2 positive integers")
+        """set the position of this Square"""
+        if not isinstance(value, tuple):
+            raise TypeError('position must be a tuple of 2 positive integers')
+        if len(value) != 2:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        if len([i for i in value if isinstance(i, int) and i >= 0]) != 2:
+            raise TypeError('position must be a tuple of 2 positive integers')
         self.__position = value
 
-# Area of square
+    # Area of square
     def area(self):
         """Calculate area"""
         return (self.__size ** 2)
 
 # Print square
+    def pos_print(self):
+        """returns the position in spaces"""
+        pos = ""
+        if self.size == 0:
+            return "\n"
+        for i in range(self.position[1]):
+            pos = pos + "\n"
+        for i in range(self.size):
+            for j in range(self.position[0]):
+                pos = pos + " "
+            for k in range(self.size):
+                pos = pos + "#"
+            pos = pos + "\n"
+        return pos
+
     def my_print(self):
-        """Prints a square"""
-        if self.__size == 0:
-            print("")
-        else:
-            for i in range(self.position[1]):
-                print("")
-            for i in range(self.size):
-                print(" " * self.position[0], end='')
-                print("#" * self.size)
+        """print the square in position"""
+        print(self.pos_print(), end='')
