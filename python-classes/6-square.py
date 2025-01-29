@@ -3,14 +3,10 @@
 
 
 class Square:
-    """defines a square"""
+    """Square class"""
 
     def __init__(self, size=0, position=(0, 0)):
-        """Create a Square
-        Args:
-            size: length of a side of Square
-            position: where the square is (coordinates)
-        """
+        """Initialise Square attributes and methods"""
         self.size = size
         self.position = position
 
@@ -46,9 +42,7 @@ class Square:
         Raises:
             TypeError: if value is not a tuple or any int in tuple < 0
         """
-        if not isinstance(value, tuple):
-            raise TypeError('position must be a tuple of 2 positive integers')
-        if len(value) != 2:
+        if (not isinstance(value, tuple) or len(value) != 2):
             raise TypeError('position must be a tuple of 2 positive integers')
         if len([i for i in value if isinstance(i, int) and i >= 0]) != 2:
             raise TypeError('position must be a tuple of 2 positive integers')
@@ -65,14 +59,14 @@ class Square:
         pos = ""
         if self.size == 0:
             return "\n"
-        for w in range(self.position[1]):
-            pos += "\n"
-        for w in range(self.size):
-            for i in range(self.position[0]):
-                pos += " "
-            for j in range(self.size):
-                pos += "#"
-            pos += "\n"
+        for i in range(self.position[1]):
+            pos = pos + "\n"
+        for i in range(self.size):
+            for j in range(self.position[0]):
+                pos = pos + " "
+            for k in range(self.size):
+                pos = pos + "#"
+            pos = pos + "\n"
         return pos
 
     def my_print(self):
