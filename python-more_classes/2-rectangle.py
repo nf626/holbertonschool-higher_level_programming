@@ -43,4 +43,4 @@ class Rectangle:
         if (self.width == 0 or self.height == 0):
             per = 0
             return per
-        return (self.width *2 + self.height * 2)
+        return (self.width * 2 + self.height * 2)
