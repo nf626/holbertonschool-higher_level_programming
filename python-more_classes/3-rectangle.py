@@ -46,6 +46,10 @@ class Rectangle:
 
     def print_str(self):
         if (self.width == 0 or self.height == 0):
-            print("")
-        for i in self.height:
-            print("#" * (self.height + self.width))
+            rectangle = ""
+        for coloumn in range(self.height):
+            for row in range(self.width):
+                rectangle = rectangle + '#'
+            if coloumn < self.__height - 1:
+                rectangle = rectangle + '\n'
+        print(rectangle, end='')
