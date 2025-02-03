@@ -1,11 +1,11 @@
-The ``Class sub-class MyList`` module
-======================
+    The ``Class sub-class MyList`` module
+    ======================
 
-First import ``print_sorted(self)`` from the ``1-my_list`` file:
+    First import ``print_sorted(self)`` from the ``1-my_list`` file:
 
     >>>  MyList = __import__('1-my_list').MyList
 
-Tests:
+    Tests:
     Default case:
 
     >>> my_list = MyList()
