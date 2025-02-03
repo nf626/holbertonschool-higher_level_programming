@@ -16,10 +16,10 @@ class BaseGeometry:
             raise ValueError("{} must be greater than 0".format(name))
 
 class Rectangle(BaseGeometry):
-        """Sub-class of BaseGeometry"""
-        def __init__(self, width, height):
-            """Initialise rectangle"""
-            self.integer_validator("width", width)
-            self.__width = width
-            self.integer_validator("height", height)
-            self.__height = height
+    """Sub-class of BaseGeometry"""
+    def __init__(self, width, height):
+        """Initialise rectangle"""
+        self.integer_validator("width", width)
+        self.__width = width
+        self.integer_validator("height", height)
+        self.__height = height
