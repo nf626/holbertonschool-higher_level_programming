@@ -1,0 +1,17 @@
+The ``Class sub-class MyList`` module
+======================
+
+Using ``print_sorted(self)``
+-------------------
+
+
+First import ``print_sorted(self)`` from the ``1-my_list`` file:
+
+    >>>  MyList = __import__('1-my_list').MyList
+
+Tests:
+    Adding two positive integers
+    >>> add (1, 1)
+    2
+
+  
