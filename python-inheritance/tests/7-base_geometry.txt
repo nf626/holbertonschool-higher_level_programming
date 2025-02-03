@@ -19,6 +19,9 @@ Tests:
             ...
     TypeError: name must be an integer
 
+    String and 1:
+    >>> bg.integer_validator("age", 1)
+
     String and 0:
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
