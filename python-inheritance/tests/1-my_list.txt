@@ -3,8 +3,9 @@ The ``Class sub-class MyList`` module
 
 First import ``print_sorted(self)`` from the ``1-my_list`` file:
 
->>>  MyList = __import__('1-my_list').MyList
+    >>> MyList = __import__('1-my_list').MyList
 
+---------------------------------------------
 Tests:
 Default case:
 
@@ -20,7 +21,3 @@ Default case:
 [1, 2, 3, 4, 5]
 >>> print(my_list)
 [1, 4, 2, 3, 5]
-
-Case 1:
-
->>> 
