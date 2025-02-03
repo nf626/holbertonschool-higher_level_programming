@@ -7,15 +7,79 @@ First import `integer_validator`` from the ``7-base_geometry`` file:
 
 ---------------------------------------------
 Tests:
+    Variable to call Class:
     >>> bg = BaseGeometry()
-    >>> bg.integer_validator("my_int", 12)
-    >>> bg.integer_validator("width", 89)
-    
+
+---------------------------------------------
+2 Arguments
+
+    Strings:
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
             ...
     TypeError: name must be an integer
 
+    String and 0:
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+            ...
+    ValueError: age must be greater than 0
+
+    String and negative integer:
+    >>> bg.integer_validator("age", -4)
+    Traceback (most recent call last):
+            ...
+    ValueError: age must be greater than 0
+
+    String and tuple:
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+            ...
+    TypeError: age must be an integer
+
+    String and list:
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+            ...
+    TypeError: age must be an integer
+
+    String and dictionary:
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+            ...
+    TypeError: age must be an integer
+
+    String and boolean:
+    >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+            ...
+    TypeError: age must be an integer
+
+    String and None:
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+            ...
+    TypeError: age must be an integer
+
+---------------------------------------------
+1 Argument:
+
+    String arguement:
+    >>> bg.integer_validator("age")
+    Traceback (most recent call last):
+            ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+---------------------------------------------
+No Arguments:
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+            ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+---------------------------------------------
+    Access area instance method:
     >>> a = BaseGeometry()
     >>> a.area()
     Traceback (most recent call last):
