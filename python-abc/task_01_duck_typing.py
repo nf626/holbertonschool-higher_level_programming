@@ -15,17 +15,16 @@ class Shape(ABC):
 
 class Circle(Shape):
     """Circle class"""
-    PI = 3.142
     def __init__(self, radius):
         self.__radius = radius
 
     def area(self):
         """Area method"""
-        return (Circle.PI * self.__radius ** 2)
+        return (3.142 * (self.__radius * self.__radius))
     
     def perimeter(self):
         """Perimeter method"""
-        return (2 * Circle.PI * self.__radius)
+        return (2 * 3.142 * self.__radius)
 
 class Rectangle(Shape):
     """Rectangle class"""
@@ -44,7 +43,5 @@ class Rectangle(Shape):
 
 def shape_info(shape):
     """Shape info function"""
-    Circle.area(shape)
-    Circle.perimeter(shape)
-    Rectangle.area(shape)
-    Rectangle.perimeter(shape)
+    Circle(shape)
+    Rectangle(shape, shape)
