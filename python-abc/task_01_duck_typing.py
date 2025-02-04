@@ -20,7 +20,7 @@ class Circle(Shape):
 
     def area(self):
         """Area method"""
-        return (3.142 * (self.__radius * self.__radius))
+        return (3.142 * (self.__radius ** 2))
     
     def perimeter(self):
         """Perimeter method"""
@@ -43,5 +43,7 @@ class Rectangle(Shape):
 
 def shape_info(shape):
     """Shape info function"""
-    Circle(shape)
-    Rectangle(shape, shape)
+    Circle.area(shape)
+    Circle.perimeter(shape)
+    Rectangle.area(shape)
+    Rectangle.perimeter(shape)
