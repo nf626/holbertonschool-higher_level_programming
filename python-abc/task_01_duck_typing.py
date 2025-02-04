@@ -43,4 +43,7 @@ class Rectangle(Shape):
 
 def shape_info(shape):
     """Shape info function"""
+    Circle.area(shape)
+    Circle.perimeter(shape)
     Rectangle.area(shape)
+    Rectangle.perimeter(shape)
