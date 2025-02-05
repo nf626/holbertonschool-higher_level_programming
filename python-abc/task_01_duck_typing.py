@@ -7,10 +7,12 @@ class Shape(ABC):
     """Shape class"""
     @abstractmethod
     def area(self):
+        """Default area"""
         raise NotImplementedError("area() must be implemented")
 
     @abstractmethod
     def perimeter(self):
+        """Default perimeter"""
         raise NotImplementedError("perimeter() must be implemented")
 
 class Circle(Shape):
@@ -41,9 +43,7 @@ class Rectangle(Shape):
         return ((self.__width * 2) + (self.__height * 2))
 
 
-def shape_info(shape):
+def shape_info(shape_var):
     """Shape info function"""
-    Circle.area(shape)
-    Circle.perimeter(shape)
-    Rectangle.area(shape)
-    Rectangle.perimeter(shape)
+    print(f"Area: {shape_var.area()}")
+    print(f"Perimeter: {shape_var.area()}")
