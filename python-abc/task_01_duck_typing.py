@@ -24,14 +24,16 @@ class Circle(Shape):
     def area(self):
         """Area method"""
         if self.__radius < 0:
-            raise AssertionError("Perimeter should handle negative radius")
-        return (math.pi * (self.__radius ** 2))
+            raise AssertionError("Area should handle negative radius")
+        else:
+            return (math.pi * (self.__radius ** 2))
     
     def perimeter(self):
         """Perimeter method"""
         if self.__radius < 0:
             raise AssertionError("Perimeter should handle negative radius")
-        return (2 * math.pi * self.__radius)
+        else:
+            return (2 * math.pi * self.__radius)
 
 class Rectangle(Shape):
     """Rectangle class"""
