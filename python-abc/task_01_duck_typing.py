@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Shape Module"""
-from abc import *
+from abc import ABC, abstractmethod
+import math
 
 
 class Shape(ABC):
@@ -18,29 +19,29 @@ class Shape(ABC):
 class Circle(Shape):
     """Circle class"""
     def __init__(self, radius):
-        self.__radius = radius
+        self.radius = radius
 
     def area(self):
         """Area method"""
-        return (3.142 * (self.__radius ** 2))
+        return (math.pi * (self.radius ** 2))
     
     def perimeter(self):
         """Perimeter method"""
-        return (2 * 3.142 * self.__radius)
+        return (2 * math.pi * self.radius)
 
 class Rectangle(Shape):
     """Rectangle class"""
     def __init__(self, width, height):
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     def area(self):
         """Area method"""
-        return (self.__width * self.__height)
+        return (self.width * self.height)
     
     def perimeter(self):
         """Perimeter method"""
-        return ((self.__width * 2) + (self.__height * 2))
+        return ((self.width * 2) + (self.height * 2))
 
 
 def shape_info(shape_var):
