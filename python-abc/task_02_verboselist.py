@@ -6,7 +6,7 @@ class VerboseList(list):
     """VerboseList class"""
     def append(self, item):
         """Append method"""
-        super().__init__(str(item))
+        super().append(str(item))
         print("Added [{}] to the list.".format(item))
 
     def extend(self, other):
