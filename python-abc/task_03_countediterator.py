@@ -12,6 +12,8 @@ class CountedIterator:
     def __next__(self):
         """next method to increment counter"""
         self.count = self.count + 1
+        if next(self.iterator) == 0:
+            raise StopIteration
         return next(self.iterator)
 
     def get_count(self):
