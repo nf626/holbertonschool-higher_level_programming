@@ -19,7 +19,7 @@ class VerboseList(list):
         super().remove(item)
         print("Removed [{}] from the list".format(item))
 
-    def pop(self, index = -1):
+    def pop(self,  index = -1):
         """Pop method"""
-        super().pop(index)
-        print("Popped {} from the list.".format(index))
+        item = super().pop(index)
+        print("Popped {} from the list.".format(item))
