@@ -22,5 +22,5 @@ class VerboseList(list):
     def pop(self,  index = -1):
         """Pop method"""
         item = super().pop(index)
-        print("Popped {} from the list.".format(item))
+        print("Popped {} from the list.".format([item]))
         return item
