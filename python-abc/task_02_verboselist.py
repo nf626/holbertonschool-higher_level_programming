@@ -6,16 +6,18 @@ class VerboseList(list):
     """VerboseList class"""
     def append(self, item):
         """Append method"""
-        print("Added [item] to the list.")
+        super().__init__(str(item))
+        print("Added [{}] to the list.".format(item))
 
-    def extend(self, item, ):
+    def extend(self, other):
         """Extend method"""
-        print("Extended the list with [x] items.")
+        print("Extended the list with {} items.".format(other))
     
-    def remove(self):
+    def remove(self, item):
         """Remove method"""
-        print("Removed [item] from the list")
+        super().remove(item)
+        print("Removed [{}] from the list".format(item))
 
-    def pop(self):
+    def pop(self, item):
         """Pop method"""
-        print("Popped [item] from the list.")
+        print("Popped [{}] from the list.".format(item))
