@@ -17,5 +17,5 @@ class Student:
             # return {k: v for k, v in self.__dict__.items() if k in attrs}
             for key, value in self.__dict__.items():
                 if key in attrs:
-                    i = {key, value}
+                    i = {key:value}
                     return i
