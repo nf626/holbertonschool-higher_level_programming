@@ -11,11 +11,6 @@ class Student:
 
     def to_json(self, attrs=None):
         """dictionary representation"""
-        if attrs is None:
-            return self.__dict__
-        else:
-            # return {k: v for k, v in self.__dict__.items() if k in attrs}
-            for key, value in self.__dict__.items():
-                if key in attrs:
-                    i = {key:value}
-                    return i
+        if (type(attrs) == list and all(type(element) == str for element in attrs)):
+            return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
+        return self.__dict__
