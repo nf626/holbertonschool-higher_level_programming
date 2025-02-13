@@ -13,5 +13,6 @@ class Student:
         """dictionary representation"""
         if (isinstance(attrs, list) and
             all(isinstance(element, str) for element in attrs)):
-            return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
+            return {key: getattr(self, key)
+                    for key in attrs if hasattr(self, key)}
         return self.__dict__
