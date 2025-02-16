@@ -7,7 +7,6 @@ def serialize_and_save_to_file(data, filename):
     """Serialise function"""
     with open(filename, mode="w", encoding="utf-8") as file:
         json.dump(data, file)
-        return "Data saved"
 
 def load_and_deserialize(filename):
     """Deserialise function"""
