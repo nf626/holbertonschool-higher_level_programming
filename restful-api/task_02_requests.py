@@ -11,8 +11,7 @@ def fetch_and_print_posts():
 
     if response.status_code == 200:
         data = response.json()
-        new_list = list(x for x in data)
-        print(new_list)
+        print(data["title"])
     else:
         print("Failed to retrieve data".format(response.status_code))
 
