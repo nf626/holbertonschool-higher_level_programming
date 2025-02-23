@@ -19,9 +19,5 @@ def status_route():
     """status page"""
     return "OK"
 
-@app.route("/users/users")
-def user_():
-
-
 if __name__ == "__main__":
     app.run()
