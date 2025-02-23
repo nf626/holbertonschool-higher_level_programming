@@ -1,10 +1,8 @@
 """Flask"""
-from flask import Flask
-from flask import jsonify
-from flask import request
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
-users = {}
+users = {"jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}, "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}}
 
 @app.route("/")
 def home():
@@ -12,9 +10,9 @@ def home():
     return "Welcome to the Flask API!"
 
 @app.route("/data")
-def serve_json():
+def store_users():
     """json page"""
-    return jsonify()
+    return jsonify(list(users.keys()))
 
 @app.route("/status")
 def status_route():
@@ -22,8 +20,12 @@ def status_route():
     return "OK"
 
 @app.route("/users/<username>")
-def user_name():
-    pass
+def user_name(username):
+    name = users.get(username)
+    if bool(name):
+        return name
+    else:
+        return {"error": "User not found"}
 
 @app.route("/add_user")
 def add_user():
