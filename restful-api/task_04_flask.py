@@ -27,7 +27,7 @@ def user_name(username):
     else:
         return {"error": "User not found"}
 
-@app.route("/add_user")
+@app.route("/add_user", methods=['POST'])
 def add_user():
     pass
 
