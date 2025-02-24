@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Security"""
 from flask import Flask
 from flask_httpauth import HTTPBasicAuth
@@ -5,14 +6,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
+jwt = JWTManager(app)
 
-users = {
-    "user1": {"username": "user1", "password": generate_password_hash("password"), "role": "user"},
-    "admin1": {"username": "admin1", "password": generate_password_hash("password"), "role": "admin"}
-}
+users = {}
 
 @app.route("/")
 def home_page():
@@ -33,7 +33,11 @@ def basic_auth():
     if not users:
         return "Unauthorized", 401
     else:
-        return "Basic Auth: Access Granted"
+        return "Basic Auth: Access Granted {}".format(auth.current_user())
+
+# JWT Authentication
+@app.route("/login", methods=['POST'])
+
 
 if __name__ == "__main__":
     app.run(debug=True)
