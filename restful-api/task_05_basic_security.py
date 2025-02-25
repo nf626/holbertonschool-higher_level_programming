@@ -37,6 +37,8 @@ def basic_auth():
 
 # JWT Authentication
 @app.route("/login", methods=['POST'])
+def f():
+    pass
 
 
 if __name__ == "__main__":
