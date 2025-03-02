@@ -13,7 +13,7 @@ def home():
 @app.route("/data")
 def store_users():
     """json page"""
-    return jsonify(list(users.keys())) # convert to json 
+    return jsonify(list(users.keys())) # convert to json
 
 @app.route("/status")
 def status_route():
