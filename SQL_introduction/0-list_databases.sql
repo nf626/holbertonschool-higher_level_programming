@@ -1,3 +1,2 @@
-#!/usr/bin/sql
-
+-- List database
 SHOW DATABASES;
