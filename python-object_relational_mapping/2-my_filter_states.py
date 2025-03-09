@@ -31,7 +31,7 @@ if __name__ == '__main__':
     # SQL commands   
     records = cur.execute(
         "SELECT * FROM states\
-        WHERE name LIKE %s ORDER BY id ASC")
+        WHERE BINARY name LIKE '{}' ORDER BY id ASC".format(STATE_NAME))
 
     # Fetch all rows in column
     records = cur.fetchall()
