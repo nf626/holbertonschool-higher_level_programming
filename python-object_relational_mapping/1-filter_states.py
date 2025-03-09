@@ -29,6 +29,15 @@ if __name__ == '__main__':
 
     # executing SQL queries on the database
     # SQL commands
-    records = cur.execute()
+    records = cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
     # Fetch all rows in column
+    records = cur.fetchall()
+
+    # SHow column and values
+    for row in records:
+        print(row)
+
+    # Close cursor and database connection
+    cur.close()
+    db.close()
