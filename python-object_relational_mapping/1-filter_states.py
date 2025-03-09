@@ -31,7 +31,7 @@ if __name__ == '__main__':
     # SQL commands
     records = cur.execute(
         "SELECT * FROM states\
-        WHERE name LIKE 'N%' ORDER BY id ASC"
+        WHERE BINARY name LIKE 'N%' ORDER BY id ASC"
         )
 
     # Fetch all rows in column
