@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 """ lists all states from the database hbtn_0e_0_usa """
 import MySQLdb
+import sys
+
 
 if __name__ == '__main__':
 
     # Connect to Database
     MY_HOST = 'localhost'
-    MY_USER = 'root'
-    MY_DB = 'hbtn_0e_0_usa'
+    MY_USER = sys.argv[1]
+    MY_PASS = sys.argv[2]
+    MY_DB = sys.argv[3]
     MY_PORT = 3306
 
     # Connect method
@@ -15,7 +18,7 @@ if __name__ == '__main__':
         host=MY_HOST,
         user=MY_USER,
         port=MY_PORT,
-        passwd='',
+        passwd=MY_PASS,
         db=MY_DB
         ) 
 
@@ -25,8 +28,7 @@ if __name__ == '__main__':
 
     # executing SQL queries on the database
     # SQL commands
-    records = cur.execute("SELECT * FROM states\
-                        ORDER BY id ASC")
+    records = cur.execute("SELECT * FROM states ORDER BY id ASC")
     
     # Fetch all rows in database
     records = cur.fetchall()
