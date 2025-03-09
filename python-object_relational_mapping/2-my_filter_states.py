@@ -28,7 +28,7 @@ if __name__ == '__main__':
     cur = db.cursor()
 
     # executing SQL queries on the database
-    # SQL commands   
+    # SQL commands
     records = cur.execute(
         "SELECT * FROM states\
         WHERE BINARY name LIKE '{}' ORDER BY id ASC".format(STATE_NAME))
