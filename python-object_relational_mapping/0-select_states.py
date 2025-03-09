@@ -20,7 +20,7 @@ if __name__ == '__main__':
         port=MY_PORT,
         passwd=MY_PASS,
         db=MY_DB
-        ) 
+        )
 
     # Cursor
     # interact with and manipulate the results of a database query
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     # executing SQL queries on the database
     # SQL commands
     records = cur.execute("SELECT * FROM states ORDER BY id ASC")
-    
+
     # Fetch all rows in database
     records = cur.fetchall()
 
