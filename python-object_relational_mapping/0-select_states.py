@@ -25,14 +25,15 @@ if __name__ == '__main__':
 
     # executing SQL queries on the database
     # SQL commands
-    records = cur.execute("SELECT * FROM states")
+    records = cur.execute("SELECT * FROM states\
+                        ORDER BY id ASC")
     
     # Fetch all rows in database
     records = cur.fetchall()
 
     # Show column and values
-    for state in records:
-        print(state)
+    for row in records:
+        print(row)
 
     # Close cursor and database connection
     cur.close()
