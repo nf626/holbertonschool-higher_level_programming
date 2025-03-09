@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # SQL commands
     records = cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-    # Fetch all rows in database
+    # Fetch all rows in column
     records = cur.fetchall()
 
     # Show column and values
