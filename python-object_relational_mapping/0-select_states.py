@@ -25,9 +25,13 @@ if __name__ == '__main__':
 
     # executing SQL queries on the database
     # SQL commands
-    cur.execute("SELECT * FROM states")
+    records = cur.execute("SELECT * FROM states")
+    
+    # Fetch all rows in database
+    records = cur.fetchall()
 
-    for state in cur:
+    # Show column and values
+    for state in records:
         print(state)
 
     # Close cursor and database connection
