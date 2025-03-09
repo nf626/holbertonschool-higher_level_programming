@@ -32,10 +32,10 @@ if __name__ == '__main__':
     operation = "SELECT * FROM states\
                 WHERE BINARY name LIKE %s\
                 ORDER BY id ASC"
-    
+
     # tuple to insert at placeholder
     data = (STATE_NAME,)
-    
+
     # executing SQL queries on the database
     cur.execute(operation, data)
 
