@@ -36,7 +36,7 @@ if __name__ == '__main__':
     # Fetch all rows in column
     records = cur.fetchall()
 
-    # SHow column and values
+    # Show column and values
     for row in records:
         print(row)
 
