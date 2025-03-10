@@ -26,11 +26,21 @@ if __name__ == '__main__':
     cur = db.cursor()
 
     # Parameterized query
+    operation = "SELECT cities.id, cities.name, states.name\
+    FROM cities\
+    RIGHT JOIN states ON cities.state_id = states.id\
+    ORDER BY cities.id ASC"
 
     # executing SQL queries on the database
-    cur.execute()
+    cur.execute(operation)
 
     # Fetch all rows in column
     records = cur.fetchall()
 
     # Show column and values
+    for row in records:
+        print(row)
+
+    # Close cursor and database connection
+    cur.close()
+    db.close()
