@@ -29,7 +29,7 @@ if __name__ == '__main__':
     operation = "SELECT cities.id, cities.name, states.name\
     FROM cities\
     RIGHT JOIN states ON cities.state_id = states.id\
-    WHERE states.name IS NOT NULL\
+    WHERE cities.name IS NOT NULL\
     ORDER BY cities.id ASC"
 
     # executing SQL queries on the database
