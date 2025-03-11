@@ -17,13 +17,13 @@ if __name__ == '__main__':
     engine = create_engine(
         f"mysql+mysqldb://{user}:{password}@localhost:3306/{db}"
         )
-    
+
     # generates new Session objects when called
     Session = sessionmaker(bind=engine)
 
     # produce new session
     session = Session()
-    
+
     # print first state
     states = session.query(State).order_by(State.id).first()
     if bool(states):
