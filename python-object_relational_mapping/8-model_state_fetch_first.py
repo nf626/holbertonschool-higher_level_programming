@@ -25,11 +25,11 @@ if __name__ == '__main__':
     session = Session()
     
     # print first state
-    x = session.query(State).first()
-    if State is None:
-        print("Nothing")
+    states = session.query(State).order_by(State.id).first()
+    if bool(states):
+        print(f"{states.id}: {states.name}")
     else:
-        print(f"{x.id}: {x.name}")
+        print("Nothing")
 
     # CLose session
     session.close()
