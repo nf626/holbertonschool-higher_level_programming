@@ -15,9 +15,9 @@ if __name__ == '__main__':
 
     # starting point
     engine = create_engine(
-    "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
-    user, password, db)
-    )
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+            user, password, db)
+        )
 
     # generates new Session objects when called
     Session = sessionmaker(bind=engine)
