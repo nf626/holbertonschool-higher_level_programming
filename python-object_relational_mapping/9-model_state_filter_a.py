@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     # starting point
     engine = create_engine(
-        f"mysql+mysqldb://{user}: {password}@'localhost:3306/{db}"
+        f"mysql+mysqldb://{user}: {password}@localhost:3306/{db}"
     )
 
     # generates new Session objects when called
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     session = Session()
 
     # print states with 'a'
-    states = session.query(State).order_by(State.id).filter(State.name.like('a%')).all() 
+    states = session.query(State).order_by(State.id).filter(State.name.like('%a%')).all() 
     for row in states:
         print(f"{row.id}: {row.name}")
 
