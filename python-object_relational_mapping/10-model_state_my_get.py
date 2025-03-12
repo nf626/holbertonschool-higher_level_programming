@@ -26,11 +26,12 @@ if __name__ == '__main__':
     session = Session()
 
     # print state id
-    for state in session.query(State).filter(State.name.contains("{}".format(state_name))):
-        if state:
-            print(f"{state.id}")
-        else:
-            print("Not found")
+    state = session.query(State).filter(State.name == state_name).first()
+
+    if state:
+        print(f"{state.id}")
+    else:
+        print("Not found")
 
     # CLose session
     session.close()
