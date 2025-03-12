@@ -35,5 +35,5 @@ if __name__ == '__main__':
     else:
         print("Not found")
 
-    # CLose session
+    # Close session
     session.close()

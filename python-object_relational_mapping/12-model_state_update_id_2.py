@@ -23,17 +23,10 @@ if __name__ == '__main__':
     # produce new session
     session = Session()
 
-    # add state id
-    new_state = State(
-        name="Louisiana"
-    )
-    session.add(new_state)
-    session.commit()
+    # update state name
+    update_state = session.query(State).get()
+    update_state.name = "New Mexico"
 
-    if new_state:
-        print(f"{new_state.id}")
-    else:
-        print("Not found")
-
-    # CLose session
+    print(upd
+    # Close session
     session.close()
