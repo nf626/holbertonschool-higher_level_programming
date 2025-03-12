@@ -25,7 +25,7 @@ if __name__ == '__main__':
     session = Session()
 
     # print first state
-    for state in session.query(State).filter(State.name.contains('a')):
+    for state in session.query(State).filter(State.name.like('%a%')):
         print(f"{state.id}: {state.name}")
 
     # CLose session
