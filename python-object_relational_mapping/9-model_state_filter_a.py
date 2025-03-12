@@ -4,7 +4,7 @@ the letter a from the database hbtn_0e_6_usa"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import State, Base
+from model_state import Base, State
 
 
 if __name__ == '__main__':
@@ -15,8 +15,8 @@ if __name__ == '__main__':
 
     # starting point
     engine = create_engine(
-        f"mysql+mysqldb://{user}: {password}@localhost:3306/{db}"
-    )
+        f"mysql+mysqldb://{user}:{password}@localhost:3306/{db}"
+        )
 
     # generates new Session objects when called
     Session = sessionmaker(bind=engine)
@@ -24,11 +24,9 @@ if __name__ == '__main__':
     # produce new session
     session = Session()
 
-    # print states with 'a'
-    states = session.query(State).filter(State.name.contains('a')).order_by(State.id)
+    # print first state
+    for state in session.query(State).filter(State.name.contains('a')):
+        print(f"{state.id}: {state.name}")
 
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
-
-    # Close session
+    # CLose session
     session.close()
