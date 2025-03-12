@@ -25,9 +25,8 @@ if __name__ == '__main__':
     session = Session()
 
     # print states with 'a'
-    states = session.query(State).filter(State.name.contains('a'))
-    for row in states:
-        print(f"{row.id}: {row.name}")
+    for state in session.query(State).filter(State.name.contains('a')):
+        print(f"{state.id}: {state.name}")
 
     # Close session
     session.close()
