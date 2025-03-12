@@ -4,7 +4,7 @@ the letter a from the database hbtn_0e_6_usa"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import State
+from model_state import State, Base
 
 
 if __name__ == '__main__':
