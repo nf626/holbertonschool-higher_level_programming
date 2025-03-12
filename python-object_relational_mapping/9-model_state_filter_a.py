@@ -25,8 +25,9 @@ if __name__ == '__main__':
     session = Session()
 
     # print states with 'a'
-    for state in session.query(State).order_by(State.id).filter(State.name == 'a'):
-        print(f"{state.id}: {state.name}")
+    states = session.query(State).order_by(State.id).filter(State.name.like('a%')) 
+    for row in states:
+        print(f"{row.id}: {row.name}")
 
     # Close session
     session.close()
