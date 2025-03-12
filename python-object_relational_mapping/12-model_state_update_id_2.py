@@ -24,9 +24,10 @@ if __name__ == '__main__':
     session = Session()
 
     # update state name
-    update_state = session.query(State).get()
+    update_state = session.query(State).get(2)
     update_state.name = "New Mexico"
 
-    print(upd
+    session.commit()
+
     # Close session
     session.close()
