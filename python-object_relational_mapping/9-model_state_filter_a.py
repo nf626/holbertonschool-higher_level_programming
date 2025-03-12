@@ -25,7 +25,7 @@ if __name__ == '__main__':
     session = Session()
 
     # print states with 'a'
-    for state in session.query(State).filter(State.name.contains('a')):
+    for state in session.query(State).order_by(State.id).filter(State.name.contains('a')):
         print(f"{state.id}: {state.name}")
 
     # Close session
