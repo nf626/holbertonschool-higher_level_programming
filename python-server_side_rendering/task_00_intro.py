@@ -17,3 +17,5 @@ def generate_invitations(template, attendees):
     except:
         raise ValueError("Not dict")
 
+    with open('output_1.txt', 'r', encoding='utf-8') as file:
+        attendee_list = file.read()
