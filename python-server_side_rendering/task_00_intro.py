@@ -1,6 +1,6 @@
 """ Creating a Simple Templating Program """
 import os
-from string import Template
+
 
 def generate_invitations(template, attendees):
     """generate invites"""
@@ -16,7 +16,4 @@ def generate_invitations(template, attendees):
             print(attendees)
     except:
         raise ValueError("Not dict")
-
-
-    #with open(template, 'w', encoding="utf-8") as temp:
 
