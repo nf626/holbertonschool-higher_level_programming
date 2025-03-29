@@ -4,18 +4,11 @@
 def generate_invitations(template, attendees):
     """generate invites"""
     
-    try:
-        if isinstance(template, str):
-            return
-    except:
-        raise ValueError("Not string")
-
-    try:
-        if isinstance(attendees, list) or all(isinstance(attendee, dict) for attendee in attendees):
-            return
-    except:
-        raise ValueError("Not list of dict")
-
+    if not isinstance(template, str):
+        return {'error': 'template is empty'}
+    
+    if not isinstance(attendees, list) or not all(isinstance(attendee, dict) for attendee in attendees):
+        return {'error': 'Not list or dict'}
 
     if not template:
         return {'error': 'template is empty'}
@@ -44,8 +37,9 @@ def generate_invitations(template, attendees):
             invite = invite.replace("{event_title}", event_title)
             invite = invite.replace("{event_date}", str(event_date))
             invite = invite.replace("{event_location}", event_location)
-        except:
-            raise AttributeError("Error")
+        except Exception as e:
+            print(f"Error processing template for {name}: {e}")
+            continue
 
         with open(f"output_{i}.txt", "w", encoding="utf-8") as f:
             f.write(invite)
