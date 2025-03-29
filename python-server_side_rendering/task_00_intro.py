@@ -12,16 +12,11 @@ def generate_invitations(template, attendees):
         raise ValueError("Not string")
 
     try:
-        if isinstance(attendees, dict):
+        if isinstance(attendees, list) or all(isinstance(attendee, dict) for attendee in attendees):
             print(attendees)
     except:
-        raise ValueError("Not dict")
-    
-    try:
-        if isinstance(attendees, dict):
-            print(attendees)
-    except:
-        raise ValueError("Not dict")
+        raise ValueError("Not list of dict")
+
 
     if not template:
         return {'error': 'template is empty'}
@@ -34,11 +29,24 @@ def generate_invitations(template, attendees):
         event_title = attendee.get("event_title", "N/A")
         event_date = attendee.get("event_date", "N/A")
         event_location = attendee.get("event_location", "N/A")
+        
+        if event_date is None:
+            event_date = "N/A"
+        else:
+            event_date = event_date
 
-        invite = template.replace("{name}", name)
-        invite = invite.replace("{event_title}", event_title)
-        invite = invite.replace("{event_date}", str(event_date))
-        invite = invite.replace("{event_location}", event_location)
+        if event_location is None:
+            event_location = "N/A"
+        else:
+            event_location = event_location
+
+        try:
+            invite = template.replace("{name}", name)
+            invite = invite.replace("{event_title}", event_title)
+            invite = invite.replace("{event_date}", str(event_date))
+            invite = invite.replace("{event_location}", event_location)
+        except:
+            raise AttributeError("Name int")
 
         with open(f"output_{i}.txt", "w", encoding="utf-8") as f:
             f.write(invite)
