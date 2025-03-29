@@ -32,14 +32,14 @@ def generate_invitations(template, attendees):
         else:
             event_location = event_location
 
-        try:
-            invite = template.replace("{name}", name)
-            invite = invite.replace("{event_title}", event_title)
-            invite = invite.replace("{event_date}", str(event_date))
-            invite = invite.replace("{event_location}", event_location)
-        except Exception as e:
-            print(f"Error processing template for {name}: {e}")
-            continue
+        #try:
+        invite = template.replace("{name}", name)
+        invite = invite.replace("{event_title}", event_title)
+        invite = invite.replace("{event_date}", str(event_date))
+        invite = invite.replace("{event_location}", event_location)
+        # except Exception as e:
+        #     print(f"Error processing template for {name}: {e}")
+        #     continue
 
         with open(f"output_{i}.txt", "w", encoding="utf-8") as f:
             f.write(invite)
