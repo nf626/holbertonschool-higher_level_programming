@@ -1,5 +1,4 @@
 """ Creating a Simple Templating Program """
-import os
 
 
 def generate_invitations(template, attendees):
@@ -7,13 +6,13 @@ def generate_invitations(template, attendees):
     
     try:
         if isinstance(template, str):
-            print(template)
+            return
     except:
         raise ValueError("Not string")
 
     try:
         if isinstance(attendees, list) or all(isinstance(attendee, dict) for attendee in attendees):
-            print(attendees)
+            return
     except:
         raise ValueError("Not list of dict")
 
@@ -46,7 +45,7 @@ def generate_invitations(template, attendees):
             invite = invite.replace("{event_date}", str(event_date))
             invite = invite.replace("{event_location}", event_location)
         except:
-            raise AttributeError("Name int")
+            raise AttributeError("Error")
 
         with open(f"output_{i}.txt", "w", encoding="utf-8") as f:
             f.write(invite)
