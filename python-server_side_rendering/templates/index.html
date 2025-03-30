@@ -5,22 +5,16 @@
        <title>My Flask App</title>
    </head>
    <body>
-    <header>
-        {% block header %}
-        {% endblock %}
-    </header>
-       <h1>Welcome to My Flask App</h1>
-       <p>This is a simple Flask application.</p>
-       <ul>
-           <li>Flask</li>
-           <li>HTML</li>
-           <li>Templates</li>
-       </ul>
-       {% block content %}
-       {% endblock%}
-    <footer>
-        {% block footer %}
-        {% endblock %}
-    </footer>
-   </body>
+    {% include 'header.html' %}
+    <h1>Welcome to My Flask App</h1>
+    <p>This is a simple Flask application.</p>
+    <ul>
+        <li>Flask</li>
+        <li>HTML</li>
+        <li>Templates</li>
+    </ul>
+    {% block content %}
+    {% endblock%}
+    </body>
+    {% include 'footer.html' %}
 </html>
