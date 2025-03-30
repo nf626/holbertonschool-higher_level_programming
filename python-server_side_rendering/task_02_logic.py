@@ -1,5 +1,6 @@
 """ Creating a Dynamic Template with Loops and Conditions in Flask """
 from flask import Flask, render_template
+import json
 
 
 app = Flask(__name__)
@@ -18,7 +19,9 @@ def contact():
 
 @app.route('/items')
 def items():
-    return render_template('items.html')
+    with open('python-server_side_rendering/items.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return render_template('items.html', items=data['items'])
 
 if __name__ == ('__main__'):
     app.run(debug=True, port=5000)

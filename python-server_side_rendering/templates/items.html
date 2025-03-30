@@ -1,13 +1,19 @@
 <!-- items.html -->
 <title>Items List</title>
-
 <!-- loop -->
+ {% block content %}
  <body>
-    <div>
-        <ul>
-            {% for item in items %}
-            <li>{{item.items}}</li>
-            {% endfor %}
-        </ul>
-    </div>
+    <h1>Items List</h1>
+    {% if items %}
+    <ul>
+        {% for item in items %}
+        <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>
+        No items found
+    </p>
+    {% endif %}
  </body>
+ {% endblock %}
