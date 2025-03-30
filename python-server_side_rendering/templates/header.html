@@ -1,11 +1,27 @@
+{% block header %}
 <!DOCTYPE html>
-<html>
-    <header>
-        <h1>My Flask App</h1>
-        <nav>
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./contact.html">Contact</a>
-        </nav>
-    </header>
+<html lang="en">
+    <head>
+        <title>My Flask App</title>
+    </head>
+    <body>
+        <header>
+            <h1>My Flask App</h1>
+            <nav>
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+        </header>
+        
+        <h1>Welcome to My Flask App</h1>
+        <p>This is a simple Flask application.</p>
+        <ul>
+            <li>Flask</li>
+            <li>HTML</li>
+            <li>Templates</li>
+        </ul>
+        <footer></footer>
+    </body>
 </html>
+{% endblock %}
