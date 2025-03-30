@@ -7,9 +7,9 @@
    <body>
     <header>
         {% block header %}
+        <nav></nav>
         {% endblock %}
     </header>
-    {% block content %}
        <h1>Welcome to My Flask App</h1>
        <p>This is a simple Flask application.</p>
        <ul>
@@ -17,7 +17,10 @@
            <li>HTML</li>
            <li>Templates</li>
        </ul>
-    {% endblock %}
+       {% block about %}
+       {% endblock about%}
+       {% block contact %}
+       {% endblock contact %}
     <footer>
         {% block footer %}
         {% endblock %}
