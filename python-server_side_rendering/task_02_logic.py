@@ -19,7 +19,7 @@ def contact():
 
 @app.route('/items')
 def items():
-    with open('python-server_side_rendering/items.json', 'r', encoding='utf-8') as f:
+    with open('items.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
     return render_template('items.html', items=data['items'])
 
