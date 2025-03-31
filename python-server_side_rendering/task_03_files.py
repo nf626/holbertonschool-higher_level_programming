@@ -30,14 +30,19 @@ def items():
 
 @app.route('/products')
 def products():
-    with open('products.json', 'r', encoding='utf-8') as j_file:
+    with open('python-server_side_rendering/products.json', 'r', encoding='utf-8') as j_file:
         data_json = json.load(j_file)
 
-    source = request.args.get('source')    
+    source = request.args.get('source')
+    product_id = request.args.get('id', type=int)
+
     if source == "json":
         if 'products' in data_json:
             return render_template('product_display.html', products=data_json['products']), 200
-
+        else:
+            return render_template('product_display.html', products=data_json), 200
+    else:
+        return "Wrong source"
 
 
 if __name__ == ('__main__'):

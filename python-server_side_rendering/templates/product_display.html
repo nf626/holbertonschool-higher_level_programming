@@ -9,18 +9,26 @@
             <h1>Product Display</h1>
         </header>
         <table>
+            {% if products %}
             <tr>
                 <th> Name</th>
                 <th>Category</th>
                 <th>Price</th>
             </tr>
             {% for row in products %}
+            {% if row['id'] %}
             <tr>
                 <td>{{ row['name'] }}</td>
                 <td>{{ row['category'] }}</td>
                 <td>{{ row['price'] }}</td>
             </tr>
+            {% else %}
+                <p>No id</p>
+            {% endif %}
             {% endfor %}
+            {% else %}
+                <p>No product found</p>
+            {% endif %}
         </table>
     </body>
 </html>
