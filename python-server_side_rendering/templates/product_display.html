@@ -1,0 +1,26 @@
+<!-- product_display.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Display</title>
+    </head>
+    <body>
+        <header>
+            <h1>Product Display</h1>
+        </header>
+        <table>
+            <tr>
+                <th> Name</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+            {% for row in products %}
+            <tr>
+                <td>{{ row['name'] }}</td>
+                <td>{{ row['category'] }}</td>
+                <td>{{ row['price'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

@@ -1,6 +1,7 @@
 """ Displaying Data from JSON or CSV Files in Flask """
 from flask import Flask, render_template
 import json
+import csv
 
 
 app = Flask(__name__)
@@ -27,5 +28,14 @@ def items():
     else:
         return render_template('items.html', items=data), 200
     
+@app.route('/products')
+def products():
+    with open('python-server_side_rendering/products.json', 'r', encoding='utf-8') as j_file:
+        data_json = json.load(j_file)
+    
+    if 'products' in data_json:
+        return render_template('product_display.html', products=data_json['products']), 200
+
+
 if __name__ == ('__main__'):
     app.run(debug=True, port=5000)
