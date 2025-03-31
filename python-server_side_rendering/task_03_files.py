@@ -49,7 +49,7 @@ def products():
         if product_id:
             json_filter = [x for x in data_json if x['id'] == product_id]
             if not json_filter:
-                return "Product not found", 404
+                return render_template('product_display.html', products=[]), 200
             else:
                 return render_template('product_display.html', products=json_filter), 200
 
@@ -60,17 +60,10 @@ def products():
                 return render_template('product_display.html', products=data_json), 200
     
     elif source == "csv":
-        if product_id:
-            csv_filter = [x for x in csv_list if x['id'] == product_id]
-            if not csv_filter:
-                return "Product not found", 404
-            else:
-                return render_template('product_display.html', products=csv_filter), 200
+        if csv_list:
+            return render_template('product_display.html', products=csv_list), 200
         else:
-            if csv_list:
-                return render_template('product_display.html', products=csv_list), 200
-            else:
-                return "empty"
+            return "empty"
     else:
         return "Wrong source"
 
