@@ -30,7 +30,7 @@ def items():
 
 @app.route('/products')
 def products():
-    with open('python-server_side_rendering/products.json', 'r', encoding='utf-8') as j_file:
+    with open('products.json', 'r', encoding='utf-8') as j_file:
         data_json = json.load(j_file)
 
     source = request.args.get('source')
