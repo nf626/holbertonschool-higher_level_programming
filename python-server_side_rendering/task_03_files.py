@@ -49,7 +49,7 @@ def products():
         if product_id:
             json_filter = [x for x in data_json if x['id'] == product_id]
             if not json_filter:
-                return render_template('product_display.html', products=[]), 200
+                return render_template('product_display.html', products=[], message="Product not found"), 200
             else:
                 return render_template('product_display.html', products=json_filter), 200
 
