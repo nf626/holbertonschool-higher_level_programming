@@ -30,17 +30,29 @@ def items():
 
 @app.route('/products')
 def products():
-    with open('products.json', 'r', encoding='utf-8') as j_file:
-        data_json = json.load(j_file)
-
     source = request.args.get('source')
     product_id = request.args.get('id', type=int)
 
     if source == "json":
+        # Json
+        with open('python-server_side_rendering/products.json', 'r', encoding='utf-8') as j_file:
+            data_json = json.load(j_file)
         if 'products' in data_json:
             return render_template('product_display.html', products=data_json['products']), 200
         else:
             return render_template('product_display.html', products=data_json), 200
+    elif source == "csv":
+        # CSV
+        csv_list = []
+        with open('python-server_side_rendering/products.csv', 'r', encoding='utf-8', newline='') as c_file:
+            csv_data = csv.DictReader(c_file)
+
+            for row in csv_data:
+                csv_list.append(row)
+        if csv_list:
+            return render_template('product_display.html', products=csv_list), 200
+        else:
+            return "empty"
     else:
         return "Wrong source"
 
