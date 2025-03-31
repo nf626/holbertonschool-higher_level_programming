@@ -19,16 +19,13 @@ def contact():
 
 @app.route('/items')
 def items():
-    with open('items.json', 'r', encoding='utf-8') as f:
+    with open('python-server_side_rendering/items.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
     
-    try:
-        if 'items' in data:
-            return render_template('items.html', items=data['items']), 200
-    except:
-        raise KeyError("item not in data")
+    if 'items' in data:
+        return render_template('items.html', items=data['items']), 200
+    else:
+        return render_template('items.html', items=data['']), 200
     
-    # return render_template('items.html', items=data['items']), 200
-
 if __name__ == ('__main__'):
     app.run(debug=True, port=5000)
