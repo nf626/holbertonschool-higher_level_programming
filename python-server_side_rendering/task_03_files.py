@@ -35,7 +35,7 @@ def products():
 
     if source == "json":
         # Json
-        with open('python-server_side_rendering/products.json', 'r', encoding='utf-8') as j_file:
+        with open('products.json', 'r', encoding='utf-8') as j_file:
             data_json = json.load(j_file)
         if 'products' in data_json:
             return render_template('product_display.html', products=data_json['products']), 200
@@ -44,7 +44,7 @@ def products():
     elif source == "csv":
         # CSV
         csv_list = []
-        with open('python-server_side_rendering/products.csv', 'r', encoding='utf-8', newline='') as c_file:
+        with open('products.csv', 'r', encoding='utf-8', newline='') as c_file:
             csv_data = csv.DictReader(c_file)
 
             for row in csv_data:
