@@ -7,6 +7,27 @@ import sqlite3
 
 app = Flask(__name__)
 
+def create_database():
+       conn = sqlite3.connect('products.db')
+       cursor = conn.cursor()
+       cursor.execute('''
+           CREATE TABLE IF NOT EXISTS Products (
+               id INTEGER PRIMARY KEY,
+               name TEXT NOT NULL,
+               category TEXT NOT NULL,
+               price REAL NOT NULL
+           )
+       ''')
+       cursor.execute('''
+           INSERT OR IGNORE INTO Products (id, name, category, price)
+           VALUES
+           (1, 'Laptop', 'Electronics', 799.99),
+           (2, 'Coffee Mug', 'Home Goods', 15.99)
+       ''')
+       conn.commit()
+       conn.close()
+
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -32,6 +53,7 @@ def items():
 @app.route('/products')
 def products():
     source = request.args.get('source')
+    source = request.args.get('sql')
     product_id = request.args.get('id', type=int)
 
     # Json
@@ -45,6 +67,13 @@ def products():
 
         for row in csv_data:
             csv_list.append(row)
+
+    # SQLite
+    connect = sqlite3.connect("products.db")
+    connect.row_factory = sqlite3.Row
+    cur = connect.cursor()
+    sql_data = cur.execute("SELECT * FROM products").fetchall()
+
 
     if source == "json":
         if product_id:
@@ -65,32 +94,15 @@ def products():
             return render_template('product_display.html', products=csv_list), 200
         else:
             return "empty"
+    elif source == "sql":
+        sql = [dict(x) for x in sql_data]
+        if sql:
+            return render_template('product_display.html', products=sql, message="Product not found"), 200
+        else:
+            return "empty"
     else:
         return "Wrong source"
 
-def create_database():
-       conn = sqlite3.connect('products.db')
-       cursor = conn.cursor()
-       cursor.execute('''
-           CREATE TABLE IF NOT EXISTS Products (
-               id INTEGER PRIMARY KEY,
-               name TEXT NOT NULL,
-               category TEXT NOT NULL,
-               price REAL NOT NULL
-           )
-       ''')
-       cursor.execute('''
-           INSERT OR IGNORE INTO Products (id, name, category, price)
-           VALUES
-           (1, 'Laptop', 'Electronics', 799.99),
-           (2, 'Coffee Mug', 'Home Goods', 15.99)
-       ''')
-       conn.commit()
-       conn.close()
-
-@app.route('/sql')
-def sqlite():
-    return render_template('products')
 
 if __name__ == ('__main__'):
     create_database()
