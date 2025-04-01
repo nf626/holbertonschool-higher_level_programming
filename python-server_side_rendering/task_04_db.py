@@ -56,12 +56,12 @@ def products():
     product_id = request.args.get('id', type=int)
 
     # Json
-    with open('python-server_side_rendering/products.json', 'r', encoding='utf-8') as j_file:
+    with open('products.json', 'r', encoding='utf-8') as j_file:
         data_json = json.load(j_file)
 
     # CSV
     csv_list = []
-    with open('python-server_side_rendering/products.csv', 'r', encoding='utf-8', newline='') as c_file:
+    with open('/products.csv', 'r', encoding='utf-8', newline='') as c_file:
         csv_data = csv.DictReader(c_file)
 
         for row in csv_data:
