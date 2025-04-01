@@ -73,6 +73,7 @@ def products():
     cur = con.cursor()
     sql = cur.execute("SELECT * FROM products").fetchall()
 
+    # Json logic
     if source == "json":
         if product_id:
             json_filter = [x for x in data_json if x['id'] == product_id]
@@ -87,12 +88,14 @@ def products():
             else:
                 return render_template('product_display.html', products=data_json), 200
     
+    # CSV logic
     elif source == "csv":
         if csv_list:
             return render_template('product_display.html', products=csv_list), 200
         else:
             return "empty"
 
+    # SQL logic
     elif source == "sql":
         if product_id:
             sql_data = [dict(x) for x in sql if x['id'] == product_id]
@@ -100,6 +103,13 @@ def products():
                 return render_template('product_display.html', products=[], message="Product not found"), 200
             else:
                 return render_template('product_display.html', products=sql_data), 200
+        
+        else:
+            if 'products' in sql:
+                return render_template('product_display.html', products=sql['products']), 200
+            else:
+                return render_template('product_display.html', products=sql), 200
+            
     else:
         return "Wrong source"
 
