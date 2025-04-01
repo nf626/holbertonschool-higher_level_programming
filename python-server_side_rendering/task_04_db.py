@@ -72,7 +72,6 @@ def products():
     con.row_factory = sqlite3.Row
     cur = con.cursor()
     sql = cur.execute("SELECT * FROM products").fetchall()
-    sql_data = [dict(x) for x in sql]
 
     if source == "json":
         if product_id:
@@ -95,10 +94,12 @@ def products():
             return "empty"
 
     elif source == "sql":
-        if sql_data:
-            return render_template('product_display.html', products=sql_data), 200
-        else:
-            return "empty"
+        if product_id:
+            sql_data = [dict(x) for x in sql if x['id'] == product_id]
+            if not sql_data:
+                return render_template('product_display.html', products=[], message="Product not found"), 200
+            else:
+                return render_template('product_display.html', products=sql_data), 200
     else:
         return "Wrong source"
 
