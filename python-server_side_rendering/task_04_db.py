@@ -21,8 +21,8 @@ def create_database():
        cursor.execute('''
            INSERT OR IGNORE INTO Products (id, name, category, price)
            VALUES
-           (1, 'Laptop', 'Electronics', 799.99),
-           (2, 'Coffee Mug', 'Home Goods', 15.99)
+           (1, 'bed', 'Electronics', 799.99),
+           (2, 'pen', 'Home Goods', 15.99)
        ''')
        conn.commit()
        conn.close()
@@ -53,27 +53,26 @@ def items():
 @app.route('/products')
 def products():
     source = request.args.get('source')
-    source = request.args.get('sql')
     product_id = request.args.get('id', type=int)
 
     # Json
-    with open('products.json', 'r', encoding='utf-8') as j_file:
+    with open('python-server_side_rendering/products.json', 'r', encoding='utf-8') as j_file:
         data_json = json.load(j_file)
 
     # CSV
     csv_list = []
-    with open('products.csv', 'r', encoding='utf-8', newline='') as c_file:
+    with open('python-server_side_rendering/products.csv', 'r', encoding='utf-8', newline='') as c_file:
         csv_data = csv.DictReader(c_file)
 
         for row in csv_data:
             csv_list.append(row)
 
-    # SQLite
-    connect = sqlite3.connect("products.db")
-    connect.row_factory = sqlite3.Row
-    cur = connect.cursor()
-    sql_data = cur.execute("SELECT * FROM products").fetchall()
-
+    #SQLite
+    con = sqlite3.connect("products.db")
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    sql = cur.execute("SELECT * FROM products").fetchall()
+    sql_data = [dict(x) for x in sql]
 
     if source == "json":
         if product_id:
@@ -95,9 +94,8 @@ def products():
         else:
             return "empty"
     elif source == "sql":
-        sql = [dict(x) for x in sql_data]
-        if sql:
-            return render_template('product_display.html', products=sql, message="Product not found"), 200
+        if sql_data:
+            return render_template('product_display.html', products=sql_data), 200
         else:
             return "empty"
     else:
