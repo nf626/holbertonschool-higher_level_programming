@@ -61,7 +61,7 @@ def products():
 
     # CSV
     csv_list = []
-    with open('/products.csv', 'r', encoding='utf-8', newline='') as c_file:
+    with open('products.csv', 'r', encoding='utf-8', newline='') as c_file:
         csv_data = csv.DictReader(c_file)
 
         for row in csv_data:
@@ -93,6 +93,7 @@ def products():
             return render_template('product_display.html', products=csv_list), 200
         else:
             return "empty"
+
     elif source == "sql":
         if sql_data:
             return render_template('product_display.html', products=sql_data), 200
