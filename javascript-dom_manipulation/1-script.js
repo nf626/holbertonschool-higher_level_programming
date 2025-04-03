@@ -1,2 +1,4 @@
-//document.getElementById("red_header");
-document.querySelector("header").style.color = "#FF0000";
+document.getElementById("red_header").addEventListener("click", myfunction)
+function myfunction() {
+    document.querySelector("header").style.color = "#FF0000";
+}
